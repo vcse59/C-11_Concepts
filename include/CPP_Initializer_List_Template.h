@@ -1,22 +1,24 @@
-#ifndef CPP_INITIALIZER_LIST
-#define CPP_INITIALIZER_LIST
+#ifndef CPP_INITIALIZER_LIST_TEMPLATE
+#define CPP_INITIALIZER_LIST_TEMPLATE
 
 #include <cstdint>
 #include <initializer_list>
 #include <iostream>
 
-class CPP_INITIALIZER_LIST_CLASS
+template <class T>
+class CPP_INITIALIZER_LIST_CLASS_TEMPLATE
 {
-    uint32_t *arr;
+    T *arr;
     uint32_t size;
 
     public:
-      CPP_INITIALIZER_LIST_CLASS(std::initializer_list<uint32_t> args)
+      
+      CPP_INITIALIZER_LIST_CLASS_TEMPLATE(std::initializer_list<T> args)
           : arr{nullptr}, size{0} {
 
-        std::cout << "Calling initializer list constructor" << std::endl;
+        std::cout << "Calling initializer list template constructor" << std::endl;
 
-        arr = new uint32_t[args.size()];
+        arr = new T[args.size()];
         uint32_t i = 0;
         for (auto x : args) {
           arr[i++] = x;
@@ -25,18 +27,18 @@ class CPP_INITIALIZER_LIST_CLASS
         size = args.size();
       }
 
-      CPP_INITIALIZER_LIST_CLASS(uint32_t a, uint32_t b)
+      CPP_INITIALIZER_LIST_CLASS_TEMPLATE(T a, T b)
       {
-        std::cout << "Calling regular constructor" <<std::endl;
+        std::cout << "Calling regular template constructor" << std::endl;
 
-        arr = new uint32_t[2];
+        arr = new T[2];
         arr[0] = a;
         arr[1] = b;
 
         size = 2;
       }
 
-      ~CPP_INITIALIZER_LIST_CLASS() {
+      ~CPP_INITIALIZER_LIST_CLASS_TEMPLATE() {
           if (arr != nullptr) {
               delete arr;
           }
@@ -51,4 +53,4 @@ class CPP_INITIALIZER_LIST_CLASS
       }
 };
 
-#endif // CPP_INITIALIZER_LIST
+#endif // CPP_INITIALIZER_LIST_TEMPLATE
