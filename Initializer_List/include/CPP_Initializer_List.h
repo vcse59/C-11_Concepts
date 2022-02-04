@@ -26,6 +26,7 @@ class CPP_INITIALIZER_LIST_CLASS
       }
 
       CPP_INITIALIZER_LIST_CLASS(uint32_t a, uint32_t b)
+        : arr{nullptr}, size{0}
       {
         std::cout << "Calling regular constructor" <<std::endl;
 
@@ -48,6 +49,29 @@ class CPP_INITIALIZER_LIST_CLASS
               std::cout << arr[i] << " ";
           }
           std::cout << std::endl;
+      }
+
+      //CPP_INITIALIZER_LIST_CLASS(const CPP_INITIALIZER_LIST_CLASS& obj);
+
+      CPP_INITIALIZER_LIST_CLASS& operator=(std::initializer_list<uint32_t>& obj)
+      {
+        std::cout << "Calling copy constructor with initializer list" << std::endl;
+
+        if(arr != nullptr) {
+          delete arr;
+        }
+
+        arr = nullptr;
+        
+        arr = new uint32_t[obj.size()];
+        uint32_t i = 0;
+        for (auto x : obj) {
+          arr[i++] = x;
+        }
+
+        size = obj.size();
+
+        return *this;
       }
 };
 

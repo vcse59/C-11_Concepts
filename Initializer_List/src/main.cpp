@@ -79,5 +79,42 @@ int main(int argc, char *argv[])
   }
   tempObj = nullptr;
 
+  // Initializer_list in initalizing fixed size arrays
+  std::cout << "Initialization of fixed size arrays" << std::endl;
+  uint32_t arr[] {11, 21, 31, 41, 51};
+  for (auto elem : arr) {
+    std::cout << elem << " ";
+  }
+  std::cout << std::endl;
+
+  // Initializer_list in initializing dynamic allocated arrays
+  std::cout << "Initialization of dynamic allocated array" << std::endl;
+  uint32_t *arrDynamic {new uint32_t[7] {11, 22, 33, 44, 55, 66, 77}};
+  for (auto elem{0}; elem < 7; elem++) {
+    std::cout << arrDynamic[elem] << " ";
+  }
+  delete arrDynamic;
+  std::cout << std::endl;
+
+  // Initializer_list in initializing dynamic allocated arrays
+  std::cout << "Initialization of dynamic allocated array without braces for new" << std::endl;
+  arrDynamic = new uint32_t[7] {11, 22, 33, 44, 55, 66, 77};
+  for (auto elem{0}; elem < 7; elem++) {
+    std::cout << arrDynamic[elem] << " ";
+  }
+  delete arrDynamic;
+  std::cout << std::endl;
+
+  // Calling copy constructor and intialize array with std::initializer_list values
+  CPP_INITIALIZER_LIST_CLASS *copyConstructorObj = new CPP_INITIALIZER_LIST_CLASS(200, 300);
+  std::initializer_list<uint32_t> copyList = {99, 199, 299, 399, 499, 599};
+  *copyConstructorObj = copyList;
+  copyConstructorObj->print();
+  if(copyConstructorObj != nullptr)
+  {
+    delete copyConstructorObj;
+  }
+  copyConstructorObj = nullptr;
+  
 	return 0;
 }
