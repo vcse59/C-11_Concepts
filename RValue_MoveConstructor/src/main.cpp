@@ -28,6 +28,16 @@ CSampleClass createSampleClass ()
 	return CSampleClass{111, 222, 333, 444, 555};
 }
 
+void printClassName(CSampleClass&& other)
+{
+	std::cout << "Sample class is an r-value reference" << std::endl;
+}
+
+void printClassName(const CSampleClass& other)
+{
+	std::cout << "Sample class is an l-value reference" << std::endl;
+}
+
 int main(int argc, char *argv[])
 {
 	uint16_t a = 1;
@@ -56,6 +66,8 @@ int main(int argc, char *argv[])
 	CSampleClass obj2(*obj1);
 	obj2.print();
 
+	printClassName(obj2);
+
 	// Calling copy assignment operator
 	std::cout << "==================================================" << std::endl;
 	std::cout << "Constructing object using copy assignment operator" << std::endl;
@@ -72,6 +84,8 @@ int main(int argc, char *argv[])
 
 	CSampleClass obj5 = std::move(createSampleClass());
 	obj5.print();
+
+	printClassName(CSampleClass{111, 111, 111, 111, 111});
 
 	// Calling move assignment operator
 	std::cout << "==================================================" << std::endl;
@@ -91,5 +105,6 @@ int main(int argc, char *argv[])
 
 	if (obj1 != nullptr) delete obj1;
 	obj1 = nullptr;
+
 	return 0;
 }

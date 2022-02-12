@@ -18,6 +18,19 @@ const_iterator	  =>         const T*
 
 # Automation type deduction
 # Rvalue references and move constructors
+
+The reason why we are talking about temporary objects is because they are rvalue expressions, and whenever a temporary object is created, memory is allocated for that object, and the result from an expression is copied into it. The act of copying data into temporary objects is what can cause seemingly hidden performance issues within a C++ application, and are what move semantics aim to address.
+
+Move Semantics
+==============
+Move semantics aim to avoid the copying of data from temporary objects by instead stealing the memory location of where the object resides. This behaviour is implemented through the use of a move constructor and move assignment operator that act only on rvalue references.
+
+std::move
+=========
+It is wise to only use std::move on lvalues that we know aren’t going to get used anywhere else in the code, such as if they are local to the function in which a move constructor is being called.
+
+
+
 # constexpr – Generalized constant expressions
 # Modification to the definition of plain old data
 # Uniform initialization

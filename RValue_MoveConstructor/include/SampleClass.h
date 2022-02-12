@@ -2,12 +2,13 @@
 #define _SAMPLE_CLASS_H_
 
 #include <initializer_list>
+#include <string>
 
 class CSampleClass
 {
     public:
         // Constructor
-        CSampleClass(std::initializer_list<uint32_t> array);
+        CSampleClass(std::initializer_list<uint32_t> array, uint8_t pRandLen = 10);
          
         // Destructor
         ~CSampleClass();
@@ -29,6 +30,8 @@ class CSampleClass
 
         uint32_t *mArray;
         uint32_t mSize;
+        std::string mName;
+        const uint8_t mRandLen;
 };
 
 #endif

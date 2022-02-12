@@ -1,9 +1,11 @@
 #include <iostream>
+#include "Util.h"
 #include "SampleClass.h"
 
-CSampleClass::CSampleClass(std::initializer_list<uint32_t> array)
+CSampleClass::CSampleClass(std::initializer_list<uint32_t> array, uint8_t pRandLen):mRandLen{pRandLen}
 {
-    std::cout << "*******************Constructing sample class" << std::endl;
+    this->mName = gen_random(mRandLen);
+    std::cout << "*******************Constructing sample class : " << this->mName << std::endl;
     this->mArray = new uint32_t[array.size()];
 
     uint32_t index = 0;
@@ -12,21 +14,21 @@ CSampleClass::CSampleClass(std::initializer_list<uint32_t> array)
         this->mArray[index++] = elem;
     }
 
-    this->mSize = array.size();
+    this->mSize = array.size(); 
 }
 
 CSampleClass::~CSampleClass()
 {
-    std::cout << "*******************Destroying sample class" << std::endl;
+    std::cout << "*******************Destroying sample class : " << this->mName << std::endl;
     if(this->mArray) delete[] this->mArray;
     this->mArray = nullptr;
     this->mSize = 0;
 }
 
-CSampleClass::CSampleClass(const CSampleClass& other)
+CSampleClass::CSampleClass(const CSampleClass& other) : mRandLen{other.mRandLen}
 {
-    std::cout << "*******************Copy constructor" << std::endl;
-
+    this->mName = gen_random(this->mRandLen);
+    std::cout << "*******************Copy constructor : " << this->mName << std::endl;
     this->mArray = new uint32_t[other.mSize];
 
     for( uint32_t index = 0; index < other.mSize; index++)
@@ -39,7 +41,8 @@ CSampleClass::CSampleClass(const CSampleClass& other)
 
 CSampleClass& CSampleClass::operator=(const CSampleClass& other)
 {
-    std::cout << "*******************Copy assignment operator" << std::endl;
+    this->mName = gen_random(other.mRandLen);
+    std::cout << "*******************Copy assignment operator : " << this->mName << std::endl;
     if (this->mArray) delete[] this->mArray;
     this->mArray = nullptr;
     this->mSize = 0;
@@ -55,9 +58,10 @@ CSampleClass& CSampleClass::operator=(const CSampleClass& other)
     return *this;
 }
 
-CSampleClass::CSampleClass(CSampleClass&& other)
+CSampleClass::CSampleClass(CSampleClass&& other) : mRandLen{other.mRandLen}
 {
-    std::cout << "*******************Move constructor" << std::endl;
+    this->mName = gen_random(this->mRandLen);
+    std::cout << "*******************Move constructor : " << this->mName << std::endl;
     this->mArray = other.mArray;
     this->mSize = other.mSize;
     other.mArray = nullptr;
@@ -66,14 +70,15 @@ CSampleClass::CSampleClass(CSampleClass&& other)
 
 CSampleClass& CSampleClass::operator=(CSampleClass&& other)
 {
-    std::cout << "*******************Move assignment operator" << std::endl;
+    this->mName = gen_random(other.mRandLen);
+    std::cout << "*******************Move assignment operator : " << this->mName << std::endl;
     if (this == &other) return *this;
 
     delete []mArray;
 
     this->mArray = other.mArray;
     this->mSize = other.mSize;
-
+    
     other.mArray = nullptr;
     other.mSize = 0;
 
