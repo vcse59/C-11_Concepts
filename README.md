@@ -1,10 +1,9 @@
 # C++11_Concepts
-# --------------
 
 Below are the C++11 new features
 
 # Inititalizer lists
-# ------------------
+
 ## Member types
 
 ## member type	     =>          definition
@@ -24,7 +23,6 @@ const_iterator	     =>         const T*
 
 # Automation type deduction
 # Rvalue references and move constructors
-# ---------------------------------------
 
 The reason why we are talking about temporary objects is because they are rvalue expressions, and whenever a temporary object is created, memory is allocated for that object, and the result from an expression is copied into it. The act of copying data into temporary objects is what can cause seemingly hidden performance issues within a C++ application, and are what move semantics aim to address.
 
