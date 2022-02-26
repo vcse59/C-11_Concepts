@@ -35,8 +35,14 @@ Move semantics aim to avoid the copying of data from temporary objects by instea
 It is wise to only use std::move on lvalues that we know aren’t going to get used anywhere else in the code, such as if they are local to the function in which a move constructor is being called.
 
 
-
 # constexpr – Generalized constant expressions
+
+There are two ways to resolve constant. Two ways are compile time and run time constant. 
+
+## Run Time Constant : If const variable is assigned with variable which takes input at run time (after program launched).
+## Compile Time Constant : If const variable is assigned with hardcoded value
+## Constexpr keyword is added to assign value to constant variable by evaluating expression or function at compile time.
+
 # Modification to the definition of plain old data
 # Uniform initialization
 # Range-based for loop
