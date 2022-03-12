@@ -6,7 +6,7 @@ Below are the C++11 new features
 
 ## Member types
 
-## 	member type	     	=>          definition
+ 	####member type	     	=>          definition
 
 	value_type	     	=>         The template parameter (T)
 
