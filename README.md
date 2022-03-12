@@ -8,15 +8,15 @@ Below are the C++11 new features
 
 ## 	member type	     =>          definition
 
-	value_type	         =>         The template parameter (T)
+	value_type	     =>         The template parameter (T)
 
-	reference	           =>         const T&
+	reference	     =>         const T&
 
 	const_reference	     =>         const T&
 
-	size_type	           =>         size_t
+	size_type	     =>         size_t
 
-	iterator	           =>         const T*
+	iterator	     =>         const T*
 
 	const_iterator	     =>         const T*
 
@@ -24,7 +24,10 @@ Below are the C++11 new features
 # Automation type deduction
 # Rvalue references and move constructors
 
-	The reason why we are talking about temporary objects is because they are rvalue expressions, and whenever a temporary object is created, memory is 		allocated for that object, and the result from an expression is copied into it. The act of copying data into temporary objects is what can cause seemingly 	   hidden performance issues within a C++ application, and are what move semantics aim to address.
+	The reason why we are talking about temporary objects is because they are rvalue expressions, and whenever a temporary object
+	is created, memory is allocated for that object, and the result from an expression is copied into it. The act of copying data
+	into temporary objects is what can cause seemingly hidden performance issues within a C++ application, and are what move
+	semantics aim to address.
 
 ## Move Semantics
 
