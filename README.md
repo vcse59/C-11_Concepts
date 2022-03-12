@@ -95,7 +95,8 @@ Below are the C++11 new features
 	The capture closure [=] indicates that the variables are captured by value.
 	If we have a capture-default & a capture clause, then we cannot have an identifier in the capture of that particular
 	capture can have the & identifier. Similarly, if the capture clause contains capture-default =, then the capture
-	clause cannot have the form = identifier. Also, an identifier or ‘this’ cannot appear more than once in the capture clause.
+	clause cannot have the form = identifier. Also, an identifier or ‘this’ cannot appear more than once in the capture
+	clause.
 
 	 
 # Alternative function syntax
