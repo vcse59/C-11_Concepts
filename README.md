@@ -8,17 +8,17 @@ Below are the C++11 new features
 
 ## 	member type	     =>          definition
 
-	value_type	     =>         The template parameter (T)
+	value_type	     	=>         The template parameter (T)
 
-	reference	     =>         const T&
+	reference	     	=>         const T&
 
-	const_reference	     =>         const T&
+	const_reference	=>         const T&
 
-	size_type	     =>         size_t
+	size_type	     	=>         size_t
 
-	iterator	     =>         const T*
+	iterator	     	=>         const T*
 
-	const_iterator	     =>         const T*
+	const_iterator	     	=>         const T*
 
 
 # Automation type deduction
