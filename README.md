@@ -11,7 +11,7 @@ Below are the C++11 new features
 	value_type	     	=>         The template parameter (T)
 
 	reference	     	=>         const T&
-
+	
 	const_reference	=>         const T&
 
 	size_type	     	=>         size_t
