@@ -24,14 +24,17 @@ Below are the C++11 new features
 # Automation type deduction
 # Rvalue references and move constructors
 
-	The reason why we are talking about temporary objects is because they are rvalue expressions, and whenever a temporary object
-	is created, memory is allocated for that object, and the result from an expression is copied into it. The act of copying data
-	into temporary objects is what can cause seemingly hidden performance issues within a C++ application, and are what move
-	semantics aim to address.
+	The reason why we are talking about temporary objects is because they are rvalue expressions, and whenever a 
+	temporary object is created, memory is allocated for that object, and the result from an expression is copied
+	into it. The act of copying data into temporary objects is what can cause seemingly hidden performance issues
+	within a C++ application, and are what move semantics aim to address.
 
 ## Move Semantics
 
-#### Move semantics aim to avoid the copying of data from temporary objects by instead stealing the memory location of where the object resides. This behaviour is implemented through the use of a move constructor and move assignment operator that act only on rvalue references.
+	Move semantics aim to avoid the copying of data from temporary objects by instead stealing the memory location
+	of where the object resides. This behaviour is implemented through the use of a move constructor and move 
+	assignment operator that act only on rvalue references.
+	
         // Copy constructor
         CSampleClass(const CSampleClass& other);
 
@@ -46,7 +49,8 @@ Below are the C++11 new features
 
 ## std::move
 
-	It is wise to only use std::move on lvalues that we know aren’t going to get used anywhere else in the code, such as if they are local to the function in which a move constructor is being called.
+	It is wise to only use std::move on lvalues that we know aren’t going to get used anywhere else in the code, such 
+	as if they are local to the function in which a move constructor is being called.
 
 # constexpr – Generalized constant expressions
 
@@ -74,19 +78,24 @@ Below are the C++11 new features
 
 	exception: Exception specification. Optional. Use “noexcept” to indicate that lambda does not throw an exception.
 
-	Return_type: Optional. The compiler deduces the return type of the expression on its own. But as lambdas get more complex, it is better to include return 	  type as the compiler may not be able to deduce the return type.
+	Return_type: Optional. The compiler deduces the return type of the expression on its own. But as lambdas get more
+	complex, it is better to include return type as the compiler may not be able to deduce the return type.
 
 	Method definition: Lambda body.
 
-	A capture clause of lambda definition is used to specify which variables are captured and whether they are captured by reference or by value.
+	A capture clause of lambda definition is used to specify which variables are captured and whether they are captured
+	by reference or by value.
 
-	An empty capture closure [ ], indicates that no variables are used by lambda which means it can only access variables that are local to it.
+	An empty capture closure [ ], indicates that no variables are used by lambda which means it can only access 
+	variables that are local to it.
 
 	The “capture-default” mode indicates how to capture outside the variables referenced in Lambda:
 
 	The capture closure [&] means the variables are captured by reference.
 	The capture closure [=] indicates that the variables are captured by value.
-	If we have a capture-default & a capture clause, then we cannot have an identifier in the capture of that particular capture can have the & identifier. 	Similarly, if the capture clause contains capture-default =, then the capture clause cannot have the form = identifier. Also, an identifier or ‘this’ 		cannot appear more than once in the capture clause.
+	If we have a capture-default & a capture clause, then we cannot have an identifier in the capture of that particular
+	capture can have the & identifier. Similarly, if the capture clause contains capture-default =, then the capture
+	clause cannot have the form = identifier. Also, an identifier or ‘this’ cannot appear more than once in the capture clause.
 
 	 
 # Alternative function syntax
